@@ -1,5 +1,5 @@
 {
-  "name": "dynamics-web-api",
+  "name": "@touchdown/dynamics-web-api",
   "version": "1.6.12",
   "description": "DynamicsWebApi is a Microsoft Dynamics CRM Web API helper library",
   "keywords": [
@@ -42,9 +42,12 @@
     "postversion": "git push && git push --tags",
     "coveralls": "npm run test-coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
+  "publishConfig": {
+    "registry": "https://pkgs.dev.azure.com/touchdown-ops/_packaging/touchdown/npm/registry/"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AleksandrRogov/DynamicsWebApi.git"
+    "url": "https://github.com/Lebowskovitch/DynamicsWebApi.git"
   },
   "browser": {
     "./lib/requests/http.js": "./lib/requests/xhr.js"

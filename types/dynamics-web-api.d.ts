@@ -681,6 +681,6 @@ declare namespace DynamicsWebApi {
 	}
 }
 
-declare module "dynamics-web-api" {
+declare module "@touchdown/dynamics-web-api" {
 	export = DynamicsWebApi;
 }

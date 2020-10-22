@@ -516,6 +516,8 @@ String.prototype.startsWith = function (searchString, position) {
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
 var DWA = __webpack_require__(1);
 var ErrorHelper = __webpack_require__(0);
 var buildPreferHeader = __webpack_require__(13);
@@ -596,9 +598,10 @@ function convertRequestOptions(request, functionName, url, joinSymbol, config) {
             var filterResult = request.filter;
 
             //fix bug 2018-06-11
+            var m;
             while ((m = removeBracketsFromGuidReg.exec(filterResult)) !== null) {
                 if (m.index === removeBracketsFromGuidReg.lastIndex) {
-                    regex.lastIndex++;
+                    removeBracketsFromGuidReg.lastIndex++;
                 }
 
                 var replacement = m[0].endsWith(')') ? ')' : ' ';
@@ -660,7 +663,7 @@ function convertRequestOptions(request, functionName, url, joinSymbol, config) {
             ErrorHelper.stringParameterCheck(request.impersonate, 'DynamicsWebApi.' + functionName, "request.impersonate");
             headers['MSCRMCallerID'] = ErrorHelper.guidParameterCheck(request.impersonate, 'DynamicsWebApi.' + functionName, "request.impersonate");
         }
-        
+
         if (request.impersonateAAD) {
             ErrorHelper.stringParameterCheck(request.impersonateAAD, 'DynamicsWebApi.' + functionName, "request.impersonateAAD");
             headers['CallerObjectId'] = ErrorHelper.guidParameterCheck(request.impersonateAAD, 'DynamicsWebApi.' + functionName, "request.impersonateAAD");
@@ -815,6 +818,7 @@ var RequestConverter = {
 };
 
 module.exports = RequestConverter;
+
 
 /***/ }),
 /* 5 */
